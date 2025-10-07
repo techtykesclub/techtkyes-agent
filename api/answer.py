@@ -36,7 +36,7 @@ def intent(t: str):
     if re.search(r"\b(laptop|chromebook|device)\b", t): return "laptop"
     return "unknown"
 
-@app.post("/api/answer", response_model=Resp)
+@app.post("/", response_model=Resp)
 def answer(req: Req, authorization: Optional[str] = Header(None)):
     if authorization != f"Bearer {API_KEY}":
         return Resp(reply="", confidence=0.0, citations=[], needs_human=True)
@@ -70,9 +70,12 @@ def answer(req: Req, authorization: Optional[str] = Header(None)):
             citations=[Citation(title="FAQ — Devices & Setup", url=s.faq)]
         )
     return Resp(
-        reply=("I can get you the exact answer—please share the student’s grade, school/district, "
-               "and topic (dates, refunds, skill level). I’ll route to our coordinator if needed."),
+        reply=("I can get you the exact answer—please share the student's grade, school/district, "
+               "and topic (dates, refunds, skill level). I'll route to our coordinator if needed."),
         confidence=0.55,
         citations=[],
         needs_human=True
     )
+
+# Vercel handler
+handler = app
