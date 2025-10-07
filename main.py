@@ -2,6 +2,7 @@
 from fastapi import FastAPI, Header
 from pydantic import BaseModel
 from typing import Optional, List
+from mangum import Mangum
 import os, re
 
 API_KEY = os.environ.get("AGENT_API_KEY", "CHANGE_ME")
@@ -76,3 +77,6 @@ def answer(req: Req, authorization: Optional[str] = Header(None)):
         citations=[],
         needs_human=True
     )
+
+# Vercel serverless handler
+handler = Mangum(app)
