@@ -1,7 +1,3 @@
 {
-  "functions": {
-    "api/answer.py": {
-      "runtime": "@vercel/python"
-    }
-  }
+  "version": 2
 }
