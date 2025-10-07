@@ -1,13 +1,7 @@
 {
   "functions": {
     "api/answer.py": {
-      "runtime": "python3.9"
+      "runtime": "python3.12"
     }
-  },
-  "routes": [
-    {
-      "src": "/api/answer",
-      "dest": "/api/answer.py"
-    }
-  ]
+  }
 }
