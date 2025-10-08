@@ -70,8 +70,8 @@ def answer(req: Req, authorization: Optional[str] = Header(None)):
             citations=[Citation(title="FAQ - Devices & Setup", url=s.faq)]
         )
     return Resp(
-        reply=("I can get you the exact answer—please share the student’s grade, school/district, "
-               "and topic (dates, refunds, skill level). I’ll route to our coordinator if needed."),
+        reply=("I can get you the exact answer—please share the student's grade, school/district, "
+               "and topic (dates, refunds, skill level). I'll route to our coordinator if needed."),
         confidence=0.55,
         citations=[],
         needs_human=True
