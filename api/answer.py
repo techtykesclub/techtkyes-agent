@@ -58,7 +58,7 @@ def answer(req: Req, authorization: Optional[str] = Header(None)):
     if i == "schedule":
         return Resp(
             reply=("We align camps with district breaks. Tell me the district and week "
-                   '(e.g., "Los Altos - Spring Break 2026") and I\'ll confirm exact dates + links.'),
+                   '(e.g., "Los Altos: Spring Break 2026") and I\'ll confirm exact dates + links.'),
             confidence=0.78,
             citations=[Citation(title="Schedules & Dates", url=s.schedule)]
         )
@@ -67,7 +67,7 @@ def answer(req: Req, authorization: Optional[str] = Header(None)):
             reply=("A charged laptop (Windows/Mac/Chromebook) with a modern browser works. "
                    "Student should know their login. If you need a loaner, reply and we'll try to arrange."),
             confidence=0.86,
-            citations=[Citation(title="FAQ - Devices & Setup", url=s.faq)]
+            citations=[Citation(title="FAQ: Devices & Setup", url=s.faq)]
         )
     return Resp(
         reply=("I can get you the exact answer—please share the student's grade, school/district, "
